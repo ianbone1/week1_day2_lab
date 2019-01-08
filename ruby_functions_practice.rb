@@ -1,3 +1,5 @@
+require "Date"
+
 def return_10
   return 10
 end
@@ -30,37 +32,46 @@ def add_string_as_number(string_1, string_2)
   return string_1.to_i + string_2.to_i
 end
 
+
+# Ian Refactored below
+#
+# def number_to_full_month_name(month_num)
+#   case month_num
+#   when 1
+#     return "January"
+#   when 2
+#     return "February"
+#   when 3
+#     return "March"
+#   when 4
+#     return "April"
+#   when 5
+#     return "May"
+#   when 6
+#     return "June"
+#   when 7
+#     return "July"
+#   when 8
+#     return "August"
+#   when 9
+#     return "September"
+#   when 10
+#     return "October"
+#   when 11
+#     return "November"
+#   when 12
+#     return "December"
+#   end
+# end
+
 def number_to_full_month_name(month_num)
-  case month_num
-  when 1
-    return "January"
-  when 2
-    return "February"
-  when 3
-    return "March"
-  when 4
-    return "April"
-  when 5
-    return "May"
-  when 6
-    return "June"
-  when 7
-    return "July"
-  when 8
-    return "August"
-  when 9
-    return "September"
-  when 10
-    return "October"
-  when 11
-    return "November"
-  when 12
-    return "December"
-  end
+  return Date::MONTHNAMES[month_num]
 end
 
+
 def number_to_short_month_name(month_num)
-  return number_to_full_month_name(month_num)[0..2]
+  #return number_to_full_month_name(month_num)[0..2]
+  return Date::ABBR_MONTHNAMES[month_num]
 end
 
 
@@ -73,5 +84,5 @@ def volume_of_sphere(radius)
 end
 
 def fahrenheit_to_celsius(fahrenheit)
-  return ((fahrenheit - 32) * (5.0 / 9.0)).to_i 
+  return ((fahrenheit - 32) * (5.0 / 9.0)).to_i
 end
